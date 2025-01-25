@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Downloader Pro</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <img src="logo.png" alt="Video Downloader Pro Logo">
+                <h1>Video Downloader Pro</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#articles">Articles</a></li>
+                <li><a href="#help">Help</a></li>
+                <li><a href="#download">Download</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <h1>YouTube Video Downloader</h1>
+        <form id="downloadForm" class="search-bar">
+            <input
+                type="url"
+                id="link"
+                name="link"
+                placeholder="Insert YouTube Video Link Here"
+                required
+            >
+            <button type="submit" class="download-btn">
+                <span class="search-icon">🔍</span>
+            </button>
+        </form>
+        <p class="description">
+            With the creation of social video sharing networks like YouTube, downloading and converting videos has become accessible to everyone. Download videos online without installing any software, all you need is a network connection.
+        </p>
+    </header>
+
+    <footer>
+        <p>© 2025 VideoMax | All Rights Reserved</p>
+    </footer>
+
+    <script>
+        document.getElementById("downloadForm").addEventListener("submit", async function(event) {
+            event.preventDefault(); 
+            const formData = new FormData(event.target); 
+            const response = await fetch('http://localhost:8000/download', {
+                    method: 'POST',
+                    body: formData
+                });
+
+                if (response.ok) {
+                    const result = await response.json();
+                    console.log('Response: ', result);
+                } else {
+                    console.log('Error:', response.statusText);
+                }
+        });
+    </script>
+</body>
+</html>
