@@ -10,7 +10,7 @@ html, body {
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #eaf7f7;
+    background-color: #e19b9b;
     color: #333;
     line-height: 1.6;
     display: flex;
@@ -60,13 +60,13 @@ body {
 }
 
 .nav-links a:hover {
-    color: #007bff;
+    color: #ffffff;
 }
 
 .hero {
     text-align: center;
     padding: 50px 20px;
-    background-color: #e0f7f7;
+    background-color: #e19b9b;
     background-image: url('pattern.png'); /* Replace with actual background */
     background-size: cover;
     background-position: center;
@@ -74,7 +74,7 @@ body {
 
 .hero h1 {
     font-size: 2.5rem;
-    color: #007bff;
+    color: #000000;
     margin-bottom: 20px;
 }
 
@@ -96,7 +96,7 @@ body {
 
 .search-bar button {
     padding: 10px 20px;
-    background-color: #ffc107;
+    background-color: #88dc7c;
     border: none;
     border-radius: 0 5px 5px 0;
     cursor: pointer;
@@ -105,7 +105,7 @@ body {
 }
 
 .search-bar button:hover {
-    background-color: #ff9f00;
+    background-color: #8ae998;
 }
 
 .description {
