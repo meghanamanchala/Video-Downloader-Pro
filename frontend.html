@@ -36,6 +36,7 @@
                 <span class="search-icon">🔍</span>
             </button>
         </form>
+        <div id="loading" class="loader" style="display:none;"></div>
         <p class="description">
             With the creation of social video sharing networks like YouTube, downloading and converting videos has become accessible to everyone. Download videos online without installing any software, all you need is a network connection.
         </p>
@@ -47,9 +48,12 @@
 
     <script>
         document.getElementById("downloadForm").addEventListener("submit", async function(event) {
-            event.preventDefault(); 
+            event.preventDefault();
+            const loader = document.getElementById("loading");
+            loader.style.display = "block";  
             const formData = new FormData(event.target); 
-            const response = await fetch('http://localhost:8000/download', {
+            try{
+                const response = await fetch('http://localhost:8000/download', {
                     method: 'POST',
                     body: formData
                 });
@@ -60,6 +64,11 @@
                 } else {
                     console.log('Error:', response.statusText);
                 }
+            }catch(error){
+                console.log('Error:', response.statusText);
+            }finally{
+                loader.style.display = "none";
+            }        
         });
     </script>
 </body>
